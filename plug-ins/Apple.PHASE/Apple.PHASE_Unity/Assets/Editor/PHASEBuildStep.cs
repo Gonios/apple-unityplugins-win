@@ -5,7 +5,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || (UNITY_EDITOR && UNITY_IOS)
 using UnityEditor.iOS.Xcode;
 #endif
 
@@ -21,7 +21,7 @@ namespace Apple.PHASE.Editor
             {BuildTarget.StandaloneOSX, "AudioPluginPHASE.bundle"}
         };
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || (UNITY_EDITOR && UNITY_IOS)
         public override void OnProcessFrameworks(AppleBuildProfile _, BuildTarget buildTarget, string pathToBuiltTarget, PBXProject pbxProject)
         {
             if (_libraryTable.ContainsKey(buildTarget))

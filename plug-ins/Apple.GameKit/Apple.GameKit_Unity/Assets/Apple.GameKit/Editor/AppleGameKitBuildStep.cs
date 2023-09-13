@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || (UNITY_EDITOR && UNITY_IOS)
 using UnityEditor.iOS.Xcode;
 #endif
 
@@ -21,7 +21,7 @@ namespace Apple.GameKit.Editor
             {BuildTarget.StandaloneOSX, "GameKitWrapper.bundle"}
         };
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || (UNITY_EDITOR && UNITY_IOS)
         public override void OnProcessEntitlements(AppleBuildProfile _, BuildTarget buildTarget, string _1, PlistDocument entitlements)
         {
             if(buildTarget == BuildTarget.StandaloneOSX)

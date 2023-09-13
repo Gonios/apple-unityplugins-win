@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR_OSX
+#if UNITY_EDITOR_OSX || (UNITY_EDITOR && UNITY_IOS)
 using UnityEditor.iOS.Xcode;
 #endif
 
